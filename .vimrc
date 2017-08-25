@@ -45,6 +45,7 @@ Plugin 'vim-scripts/Conque-GDB'
 Plugin 'taglist.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tpope/vim-fugitive'
+Plugin 'kshenoy/vim-signature'
 
 call vundle#end()
 
