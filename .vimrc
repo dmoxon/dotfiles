@@ -99,6 +99,8 @@ nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
 " Key Bindings
 " nnoremap <c-b> :buffers<CR>
+inoremap jj <ESC>
+
 nnoremap <c-b> :CtrlPBuffer<CR>
 nnoremap <c-m> :CtrlPMRU<CR>
 " CtrlP Plugin
