@@ -15,16 +15,22 @@ end
 " Clipboard support needed
 set clipboard=unnamed
 
-" Indentation
-set tabstop=8
-set softtabstop=0
-set noexpandtab
+" Default Indentation
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+"Place 80 character column indicator
 set colorcolumn=80
+
+" Backspace fix
+set backspace=indent,eol,start
+
 " Package manager
 "execute pathogen#infect()
 
 " Vundle
-filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -48,9 +54,29 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kshenoy/vim-signature'
 
 call vundle#end()
+if has("autocmd")
+  " Enable the file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  " Put files in ~/.vim/after/ftplugin
+  filetype plugin indent on
+  " ...
+endif
 
-filetype indent on
-filetype plugin indent on
+" Weird Isilon C/C++ indentation
+" set tabstop=8
+" set softtabstop=0
+" set noexpandtab
+
+" for html/rb files, 2 spaces
+" autocmd Filetype html setlocal ts=2 sw=2 expandtab
+" autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+
+" for js/coffee/jade files, 4 spaces
+" autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
+" autocmd Filetype coffeescript setlocal ts=4 sw=4 sts=0 expandtab
+" autocmd Filetype jade setlocal ts=4 sw=4 sts=0 expandtab
 
 " Color Scheme
 set background=dark
