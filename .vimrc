@@ -41,6 +41,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'junegunn/fzf'
@@ -52,6 +53,7 @@ Plugin 'taglist.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kshenoy/vim-signature'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()
 if has("autocmd")
@@ -65,24 +67,21 @@ if has("autocmd")
 endif
 
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
-
 " Weird Isilon C/C++ indentation
-" set tabstop=8
-" set softtabstop=0
-" set noexpandtab
+" autocmd Filetype c setlocal ts=8 sw=8 sts=0 noexpandtab
+" autocmd Filetype cpp setlocal ts=8 sw=8 sts=0 noexpandtab
 
-" for html/rb files, 2 spaces
+" Example indentation specifics for individual languages
 " autocmd Filetype html setlocal ts=2 sw=2 expandtab
 " autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
-
-" for js/coffee/jade files, 4 spaces
 " autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
 " autocmd Filetype coffeescript setlocal ts=4 sw=4 sts=0 expandtab
 " autocmd Filetype jade setlocal ts=4 sw=4 sts=0 expandtab
 
 " Color Scheme
 set background=dark
-colorscheme solarized 
+colorscheme solarized
+" colorscheme base16-default-dark
 set t_Co=16
 " let g:solarized_termtrans=1
 let g:airline_theme='solarized'
