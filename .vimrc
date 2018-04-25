@@ -54,6 +54,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kshenoy/vim-signature'
 Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 if has("autocmd")
@@ -159,6 +160,9 @@ let Tlist_WinWidth=50
 let Tlist_Close_On_Select=1
 let Tlist_Compact_Format=1
 let Tlist_Show_One_File=1
+
+" NerdTree
+map <C-n> :NERDTreeToggle<CR>
 
 " highlight system.types/stat files as C-files
 augroup StatTypesHighlight
