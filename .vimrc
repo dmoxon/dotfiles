@@ -165,3 +165,6 @@ augroup StatTypesHighlight
 	au BufRead,BufNewFile *.stat setfiletype cpp
 	au BufRead,BufNewFile *.types setfiletype cpp
 augroup END
+
+" Grep shortcuts
+command! -nargs=+ Ngrep execute 'silent grep! <args>' | copen 30
