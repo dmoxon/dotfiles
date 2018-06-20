@@ -55,8 +55,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kshenoy/vim-signature'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
+Plugin 'GEverding/vim-hocon'
 
 call vundle#end()
+
 if has("autocmd")
   " Enable the file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
@@ -67,7 +69,12 @@ if has("autocmd")
   " ...
 endif
 
+" Custom rules for file types
+
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
+
+let g:xml_syntax_folding=1
+autocmd FileType xml setlocal foldmethod=syntax
 " Weird Isilon C/C++ indentation
 " autocmd Filetype c setlocal ts=8 sw=8 sts=0 noexpandtab
 " autocmd Filetype cpp setlocal ts=8 sw=8 sts=0 noexpandtab
@@ -107,31 +114,28 @@ set autoread
 set incsearch
 set hlsearch
 
+" Key Bindings
+
 " Clear highlighting done by search.
 map <silent> \ :let @/=""<cr>
 
 " Leader related convenience shortcuts
 let mapleader=" "
-nmap <leader>0 :cd /local/statview<CR>
-nmap <leader>1 :cd /local/onefs<CR>
-nmap <leader>2 :cd /local/onefs/isilon<CR>
-nmap <leader>3 :cd /local/onefs/isilon/lib<CR>
-nmap <leader>4 :cd /local/onefs/isilon/lib/isi_stats<CR>
-nmap <leader>5 :cd /local/onefs/isilon/lib/isi_statview<CR>
-nmap <leader>6 :cd /local/onefs/isilon/lib/isi_platform_api/<CR>
-nmap <leader>7 :cd /local/obj/mnt/src/onefs<CR>
-nmap <leader>8 :cd /local/obj/mnt/src/onefs/isilon/lib<CR>
-nmap <leader>9 :cd /local/obj/mnt/src/onefs/isilon/lib/isi_platform_api<CR>
+"nmap <leader>0 :cd /local/statview<CR>
 nmap <leader>q :Bdelete<CR>
+
+"Netcat for piping yank over ssh tunnel
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
-" Key Bindings
-" nnoremap <c-b> :buffers<CR>
 inoremap jj <ESC>
 
-nnoremap <c-b> :CtrlPBuffer<CR>
-nnoremap <c-m> :CtrlPMRU<CR>
+"Plugin Settings
+
 " CtrlP Plugin
+nnoremap <c-b> :CtrlPBuffer<CR>
+" nnoremap <c-b> :buffers<CR>
+nnoremap <c-m> :CtrlPMRU<CR>
+
 let g:ctrlp_map = ''
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
