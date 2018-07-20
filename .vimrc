@@ -21,9 +21,6 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-"Place 80 character column indicator
-set colorcolumn=80
-
 " Backspace fix
 set backspace=indent,eol,start
 
@@ -73,7 +70,7 @@ endif
 
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
 
-let g:xml_syntax_folding=1
+"let g:xml_syntax_folding=1
 autocmd FileType xml setlocal foldmethod=syntax
 " Weird Isilon C/C++ indentation
 " autocmd Filetype c setlocal ts=8 sw=8 sts=0 noexpandtab
@@ -99,10 +96,12 @@ let g:airline_section_warning = 0
 syntax on
 set number
 set showcmd
-set cursorline
+"set cursorline
 "set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
 set laststatus=2
 set ruler
+"Place 80 character column indicator
+set colorcolumn=80
 
 set wildmenu
 
@@ -176,3 +175,4 @@ augroup END
 
 " Grep commands
 command! -nargs=+ Ngrep execute 'silent grep! <args>' | copen 20
+command! -nargs=+ Vim execute 'vim <args>' | copen 20
